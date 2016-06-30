@@ -1,0 +1,35 @@
+-- 建立資料庫
+create database homework4 default character set utf8;
+
+use homework4;
+
+-- 建立資料表
+create table accounts
+(
+aid int auto_increment not null primary key,
+date date,
+goods char(10),
+price int(5),
+num int(5),
+item char(10)
+);
+
+-- 輸入資料內容
+insert into accounts (date,goods,price,num,item) values(current_date() ,"演唱會門票",1500,3,"樂");
+insert into accounts (date,goods,price,num,item) values(current_date() ,"酸辣湯",25,1,"食");
+insert into accounts (date,goods,price,num,item) values(current_date() ,"皮夾",1380,1,"衣");
+insert into accounts (date,goods,price,num,item) values(current_date() ,"教材",580,1,"育");
+insert into accounts (date,goods,price,num,item) values(current_date() ,"觀音拿鐵",55,1,"食");
+insert into accounts (date,goods,price,num,item) values(current_date() ,"夜唱",400,1,"樂");
+
+-- 修改資料內容
+update accounts set price = 580 where goods ="皮夾";
+
+-- select....
+select * from accounts where item = "樂" order by date;
+
+-- 刪除資料內容
+delete from accounts  where goods="夜唱";
+
+-- 刪除資料表
+drop table accounts;
